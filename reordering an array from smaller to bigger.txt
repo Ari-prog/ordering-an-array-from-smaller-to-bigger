@@ -1,0 +1,34 @@
+#Finding the smaller number inside an array. This function #will be used to reorder objects in an array.
+
+def searchsmallernumber(arr): 
+
+    smaller = arr[0]
+
+    smaller_index = 0 
+
+    for i in range(1, len(arr)):
+
+        if arr[i] < smaller: 
+
+           smaller = arr[i]
+           smaller_index = i 
+
+    return smaller_index
+
+#Reordering objects in an array, from smaller to bigger number. Notice that we use "searchsmallernumber" function created above.
+
+def orderingthroughSelection(arr):
+
+    newArr = [] 
+
+    for i in range(len(arr)): 
+ 
+         smaller = searchsmallernumber(arr) 
+
+         newArr.append(arr.pop(smaller)) 
+
+    return newArr
+
+test = orderingthroughSelection([5, 3, 6, 2, 10])
+
+print (test)
